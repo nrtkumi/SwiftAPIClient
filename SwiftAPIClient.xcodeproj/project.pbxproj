@@ -13,6 +13,7 @@
 		5CB6456D21CCCFE60095DE78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CB6456C21CCCFE60095DE78 /* Assets.xcassets */; };
 		5CB6457021CCCFE60095DE78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CB6456E21CCCFE60095DE78 /* LaunchScreen.storyboard */; };
 		5CB6457B21CCCFE60095DE78 /* SwiftAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6457A21CCCFE60095DE78 /* SwiftAPIClientTests.swift */; };
+		5CB6458821CD23630095DE78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6458721CD23630095DE78 /* User.swift */; };
 		BE1449CD6CD55CECF48C5BE0 /* Pods_SwiftAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA250CC7119C1AFC48E20511 /* Pods_SwiftAPIClient.framework */; };
 		C10BC8963590D4570484BB09 /* Pods_SwiftAPIClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89558A34D18BBCCE5C6320AA /* Pods_SwiftAPIClientTests.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		5CB6457621CCCFE60095DE78 /* SwiftAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB6457A21CCCFE60095DE78 /* SwiftAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAPIClientTests.swift; sourceTree = "<group>"; };
 		5CB6457C21CCCFE60095DE78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CB6458721CD23630095DE78 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		67641883318E5A97BB8D15CD /* Pods-SwiftAPIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAPIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAPIClient/Pods-SwiftAPIClient.debug.xcconfig"; sourceTree = "<group>"; };
 		7A84E8F847535A7FAB653D15 /* Pods-SwiftAPIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAPIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAPIClientTests/Pods-SwiftAPIClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		89558A34D18BBCCE5C6320AA /* Pods_SwiftAPIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftAPIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 		5CB6456421CCCFE30095DE78 /* SwiftAPIClient */ = {
 			isa = PBXGroup;
 			children = (
+				5CB6458621CD233B0095DE78 /* Models */,
 				5CB6456521CCCFE30095DE78 /* AppDelegate.swift */,
 				5CB6456721CCCFE30095DE78 /* ViewController.swift */,
 				5CB6456921CCCFE30095DE78 /* Main.storyboard */,
@@ -106,6 +109,14 @@
 				5CB6457C21CCCFE60095DE78 /* Info.plist */,
 			);
 			path = SwiftAPIClientTests;
+			sourceTree = "<group>";
+		};
+		5CB6458621CD233B0095DE78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5CB6458721CD23630095DE78 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7A3CCB85372E1B239E014196 /* Frameworks */ = {
@@ -303,6 +314,7 @@
 			files = (
 				5CB6456821CCCFE30095DE78 /* ViewController.swift in Sources */,
 				5CB6456621CCCFE30095DE78 /* AppDelegate.swift in Sources */,
+				5CB6458821CD23630095DE78 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
