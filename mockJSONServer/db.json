@@ -1,9 +1,21 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Takumi Nara",
-            "age": 20
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "Takumi Nara",
+      "age": 20
+    },
+    {
+      "bio": "test test test test test",
+      "age": 20,
+      "name": "N",
+      "id": 2
+    },
+    {
+      "name": "NARA",
+      "bio": "test test test test test",
+      "age": 20,
+      "id": 3
+    }
+  ]
 }
