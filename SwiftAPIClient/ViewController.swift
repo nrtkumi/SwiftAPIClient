@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var userList = [User]()
+    var selectedUser: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +21,44 @@ class ViewController: UIViewController {
         // showUser()
         // createUser()
         
+        API().showAllUser { (response) in
+            if let data = response.data {
+                let decode: [User] = try! JSONDecoder().decode([User].self, from: data)
+                
+                if let users: [User] =  decode {
+                    for user in users {
+                        self.userList.append(user)
+                    }
+                }
+                
+                print(self.userList.count)
+                self.tableView.reloadData()
+                
+            }
+        }
+        
         print("Hello!")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        let userName = userList[indexPath.row].name
+        
+        cell.textLabel?.text = userName
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedUser = userList[indexPath.row]
+        
+        print("AAAAA")
+        
+        performSegue(withIdentifier: "UserDetailViewController", sender: nil)
     }
     
     func showAllUser() {
@@ -88,6 +129,18 @@ class ViewController: UIViewController {
         print(decodedUser.name)
         print(decodedUser.age)
         print(decodedUser.bio)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("CCC")
+        print(segue.identifier)
+        if segue.identifier == "UserDetailViewController" {
+            print("BBBBB")
+
+            let viewController = (segue.destination as? UserDetailViewController)
+            
+            viewController?.user = selectedUser
+        }
     }
 
 
