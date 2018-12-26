@@ -9,8 +9,8 @@
 import Foundation
 import Alamofire
 
-// let url: String = "http://192.168.1.7:3000/"
-let url: String = "http://127.0.0.1:3000/"
+let url: String = "http://192.168.1.7:3000/"
+// let url: String = "http://127.0.0.1:3000/"
 let headers: HTTPHeaders = [
     "Contenttype": "application/json"
 ] // TODO: Add access token

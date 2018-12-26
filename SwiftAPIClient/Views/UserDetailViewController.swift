@@ -11,12 +11,23 @@ import UIKit
 class UserDetailViewController: UIViewController {
     
     var user: User?
-
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        print(user!.name)
+        guard let user = user else {
+            print("nil user")
+            return
+        }
+        
+        idLabel.text = String(user.id)
+        nameLabel.text = user.name
+        ageLabel.text = String(user.age)
+        bioLabel.text = user.bio
     }
     
 
