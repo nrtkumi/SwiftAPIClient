@@ -9,22 +9,65 @@
 import UIKit
 
 class UserFormViewController: UIViewController {
-
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var ageField: UITextField!
+    @IBOutlet weak var bioField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func tapCreateUserButton(_ sender: Any) {
+        guard let name = nameField.text, let age = ageField.text else {
+            print("名前か年齢がnil")
+            return
+        }
+        
+        if name != "" && age != "" {
+            let bio = bioField.text
+            let parameters: [String: Any] = [ "name": name, "age": Int(age), "bio": bio ]
+            
+            API().createUser(parameters: parameters) { (response) in
+                guard let res = response.response else {
+                    print("nil response")
+                    return
+                }
+                
+                print(res.statusCode)
+                
+                if res.statusCode == 201 {
+                    print("OK")
+                    self.performSegue(withIdentifier: "reloadData", sender: nil)
+                    //self.navigationController?.popViewController(animated: true)
+                    //self.performSegue(withIdentifier: "createSuccessful", sender: nil)
+                    print("VVVVVVVVVVV")
+                }
+            }
+        } else {
+            print("名前か年齢が空文字")
+            
+            //self.dismiss(animated: true, completion: nil)
+            // self.navigationController?.popViewController(animated: true)
+            // performSegue(withIdentifier: "reloadData", sender: nil)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        }
     }
-    */
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toForm" {
+            let vc = (segue.destination as? ViewController)
+            print("Success create user!")
+        }
+    }*/
+    
+    //@IBAction func successCreate(segue: UIStoryboardSegue) {
+        
+    //}
+ 
 }

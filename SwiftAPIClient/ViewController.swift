@@ -142,6 +142,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             viewController?.user = selectedUser
         }
     }
+    
+    @IBAction func reloadData(_ segue: UIStoryboardSegue) {
+        print("RELOAD!!!")
+        
+        API().showAllUser { (response) in
+            if let data = response.data {
+                let decode: [User] = try! JSONDecoder().decode([User].self, from: data)
+                
+                if let users: [User] =  decode {
+                    for user in users {
+                        self.userList.append(user)
+                    }
+                }
+                
+                print(self.userList.count)
+                self.tableView.reloadData()
+                
+            }
+        }
+    }
 
 
 }
