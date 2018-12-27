@@ -63,8 +63,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("CCC")
-        print(segue.identifier)
         if segue.identifier == "UserDetailViewController" {
             let viewController = (segue.destination as? UserDetailViewController)
             
