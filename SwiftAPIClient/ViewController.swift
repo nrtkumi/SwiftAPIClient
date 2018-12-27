@@ -25,15 +25,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         API().showAllUser { (response) in
             if let data = response.data {
-                let decode: [User] = try! JSONDecoder().decode([User].self, from: data)
-                
-                if let users: [User] = decode {
-                    for user in users {
-                        self.userList.append(user)
+                do {
+                    let decode: [User] = try JSONDecoder().decode([User].self, from: data)
+                    
+                    if let users: [User] = decode {
+                        for user in users {
+                            self.userList.append(user)
+                        }
                     }
+                    
+                    self.tableView.reloadData()
+                } catch {
+                    print("デコードに失敗しました")
                 }
-                
-                self.tableView.reloadData()
             }
         }
     }
