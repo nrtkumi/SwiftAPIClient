@@ -15,8 +15,6 @@ class UserFormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func tapCreateUserButton(_ sender: Any) {
@@ -38,36 +36,17 @@ class UserFormViewController: UIViewController {
                 print(res.statusCode)
                 
                 if res.statusCode == 201 {
-                    print("OK")
+                    // created
                     self.performSegue(withIdentifier: "reloadData", sender: nil)
-                    //self.navigationController?.popViewController(animated: true)
-                    //self.performSegue(withIdentifier: "createSuccessful", sender: nil)
-                    print("VVVVVVVVVVV")
                 }
             }
         } else {
             print("名前か年齢が空文字")
-            
-            //self.dismiss(animated: true, completion: nil)
-            // self.navigationController?.popViewController(animated: true)
-            // performSegue(withIdentifier: "reloadData", sender: nil)
-
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toForm" {
-            let vc = (segue.destination as? ViewController)
-            print("Success create user!")
-        }
-    }*/
-    
-    //@IBAction func successCreate(segue: UIStoryboardSegue) {
-        
-    //}
  
 }
